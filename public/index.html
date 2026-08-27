@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumelush Studio — Proposal Maker</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Georgia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">Lumelush <span>Proposal Maker</span></div>
+
+  <form id="form">
+    <label>
+      Client name
+      <input type="text" name="clientName" placeholder="e.g. Rahul Sharma" required>
+    </label>
+
+    <label>
+      Company name
+      <input type="text" name="companyName" placeholder="e.g. Sharma Interiors Pvt Ltd" required>
+    </label>
+
+    <label>
+      Package
+      <select name="package" required>
+        <option value="foundation">Digital Presence & Trust Foundation</option>
+        <option value="growth">Growth</option>
+        <option value="automation">Business Automation</option>
+      </select>
+    </label>
+
+    <label>
+      Proposal date <span class="hint">(defaults to today; valid-until is set automatically to +30 days)</span>
+      <input type="date" name="proposalDate">
+    </label>
+
+    <label>
+      Any specific changes for this proposal? <span class="hint">(optional)</span>
+      <textarea name="specificChanges" rows="3" placeholder="e.g. Change the implementation fee to ₹50,000. Leave blank if none."></textarea>
+    </label>
+
+    <button type="submit" id="submitBtn">Generate proposal</button>
+  </form>
+
+  <div id="result" class="result hidden"></div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+:root {
+  --navy: #1B2A4A;
+  --teal: #17B3AC;
+  --green: #4BBF95;
+  --gray: #6B7488;
+  --border: #E2E8F1;
+  --bg-tint: #F7FAFC;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--navy);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+}
+
+.wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+.mark {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+.mark span {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--gray);
+  letter-spacing: 1px;
+  display: block;
+  margin-top: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.3px;
+}
+
+.hint {
+  font-weight: 400;
+  color: var(--gray);
+  font-size: 12px;
+}
+
+input, select, textarea {
+  font-family: Georgia, serif;
+  font-size: 15px;
+  color: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  background: var(--bg-tint);
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: -1px;
+}
+
+textarea { resize: vertical; }
+
+button {
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  color: #fff;
+  background: linear-gradient(100deg, #1E7FD6, var(--teal), var(--green));
+  border: none;
+  border-radius: 4px;
+  padding: 14px 20px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.result {
+  margin-top: 32px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-tint);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.result.hidden { display: none; }
+.result.error { border-color: #C0504D; color: #C0504D; background: #FBEEED; }
+
+.result a.download {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--teal);
+  font-weight: 700;
+  text-decoration: none;
+}
+.result a.download:hover { text-decoration: underline; }
+
+.result .note-block { margin-top: 12px; }
+.result .note-title { font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.result ul { margin: 4px 0 0; padding-left: 18px; }
