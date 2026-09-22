@@ -1,6 +1,23 @@
 const form = document.getElementById('form');
 const submitBtn = document.getElementById('submitBtn');
 const resultEl = document.getElementById('result');
+const packageSelect = document.getElementById('packageSelect');
+const clientNameField = document.getElementById('clientNameField');
+const clientNameInput = document.getElementById('clientNameInput');
+
+// Packages whose deck has no [Client Name] placeholder — keep in sync with
+// `hasClientName: false` in lib/generateProposal.js.
+const PACKAGES_WITHOUT_CLIENT_NAME = new Set(['growth']);
+
+function syncClientNameField() {
+  const needed = !PACKAGES_WITHOUT_CLIENT_NAME.has(packageSelect.value);
+  clientNameField.style.display = needed ? '' : 'none';
+  clientNameInput.required = needed;
+  if (!needed) clientNameInput.value = '';
+}
+
+packageSelect.addEventListener('change', syncClientNameField);
+syncClientNameField();
 
 function esc(str) {
   const div = document.createElement('div');
@@ -40,6 +57,9 @@ form.addEventListener('submit', async (e) => {
     const pdfUrl = base64ToBlobUrl(body.pdfBase64, 'application/pdf');
     let html = `<a class="download" href="${pdfUrl}" download="${esc(body.filename)}">Download proposal PDF →</a>`;
 
+    if (body.pageNote) {
+      html += `<div class="note-block"><div class="note-title">Pages removed:</div>${esc(body.pageNote)}</div>`;
+    }
     if (body.geminiNote) {
       html += `<div class="note-block"><div class="note-title">Note from the AI review:</div>${esc(body.geminiNote)}</div>`;
     }

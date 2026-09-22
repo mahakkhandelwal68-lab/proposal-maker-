@@ -13,8 +13,17 @@
 
   <form id="form">
     <label>
+      Package
+      <select name="package" id="packageSelect" required>
+        <option value="foundation">Digital Presence & Trust Foundation</option>
+        <option value="growth">Growth</option>
+        <option value="automation">Business Automation</option>
+      </select>
+    </label>
+
+    <label id="clientNameField">
       Client name
-      <input type="text" name="clientName" placeholder="e.g. Rahul Sharma" required>
+      <input type="text" name="clientName" id="clientNameInput" placeholder="e.g. Rahul Sharma" required>
     </label>
 
     <label>
@@ -23,22 +32,18 @@
     </label>
 
     <label>
-      Package
-      <select name="package" required>
-        <option value="foundation">Digital Presence & Trust Foundation</option>
-        <option value="growth">Growth</option>
-        <option value="automation">Business Automation</option>
-      </select>
-    </label>
-
-    <label>
-      Proposal date <span class="hint">(defaults to today; valid-until is set automatically to +30 days)</span>
+      Proposal date <span class="hint">(defaults to today; where the package includes a valid-until date, it's set automatically to +30 days)</span>
       <input type="date" name="proposalDate">
     </label>
 
     <label>
       Any specific changes for this proposal? <span class="hint">(optional)</span>
       <textarea name="specificChanges" rows="3" placeholder="e.g. Change the implementation fee to ₹50,000. Leave blank if none."></textarea>
+    </label>
+
+    <label>
+      Pages to remove <span class="hint">(optional — page numbers of the chosen package, e.g. 9, 10, 11 or 9-11)</span>
+      <input type="text" name="removePages" placeholder="Leave blank to keep every page">
     </label>
 
     <button type="submit" id="submitBtn">Generate proposal</button>

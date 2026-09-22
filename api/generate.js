@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
       unappliedEdits: result.unappliedEdits,
       geminiNote: result.geminiNote,
       geminiError: result.geminiError,
+      pageNote: result.pageNote,
     });
   } catch (err) {
     console.error(err);
